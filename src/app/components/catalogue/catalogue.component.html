@@ -1,0 +1,24 @@
+<div class="container mt-5 mb-5">
+<table datatable [dtOptions]="dtOptions" [dtTrigger] = "dtTrigger" class="table">
+    <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Blend Name</th>
+          <th scope="col">Origin</th>
+          <th scope="col">Variety</th>
+          <th scope="col">Notes</th>
+          <th scope="col">Intensifier</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+      <tr *ngFor="let coffee of productDetails; let i = index" (click)="selectedProduct(coffee.id)">
+        <th scope="row">{{ i + 1}}</th>
+        <td>{{coffee.blend_name}}</td>
+        <td>{{coffee.origin}}</td>
+        <td>{{coffee.variety}}</td>
+        <td>{{coffee.notes}}</td>
+        <td>{{coffee.intensifier}}</td>
+      </tr>
+    </tbody>
+    </table>
+    </div>
