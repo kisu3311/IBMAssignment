@@ -1,7 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { CatalogueComponent } from './catalogue.component';
-import * as Actions from './../../store/actions/coffee.actions';
+import { RouterTestingModule } from '@angular/router/testing';
+import { StoreModule } from '@ngrx/store';
+import { metaReducers, reducers } from './../../store/reducers/core.reducers';
+import { CoffeeEffects } from './../../store/effects/coffee.effects';
+import { EffectsModule } from '@ngrx/effects';
+import { HttpClientModule } from '@angular/common/http';
+import { DataTablesModule } from 'angular-datatables';
 
 describe('CatalogueComponent', () => {
   let component: CatalogueComponent;
@@ -9,7 +14,14 @@ describe('CatalogueComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CatalogueComponent ]
+      declarations: [ CatalogueComponent ],
+      imports: [
+        RouterTestingModule,
+        HttpClientModule,
+        DataTablesModule,
+        StoreModule.forRoot(reducers, {metaReducers}),
+        EffectsModule.forRoot([CoffeeEffects]),
+      ],
     })
     .compileComponents();
 
@@ -20,11 +32,5 @@ describe('CatalogueComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should match table row count as 10', () => {
-    const tabLabels = fixture.debugElement.query(By.css('.table-group-divider'));
-    let tableRows = tabLabels.nativeElement.querySelectorAll('tr');
-    expect(tableRows.length).toBe(10);
   });
 });

@@ -12,7 +12,7 @@
       </thead>
       <tbody class="table-group-divider">
       <tr *ngFor="let coffee of productDetails; let i = index" (click)="selectedProduct(coffee.id)">
-        <th scope="row">{{ i + 1}}</th>
+        <td scope="row">{{ i + 1}}</td>
         <td>{{coffee.blend_name}}</td>
         <td>{{coffee.origin}}</td>
         <td>{{coffee.variety}}</td>

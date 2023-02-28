@@ -1,0 +1,35 @@
+/*** CSS for Mobile View ****/
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px){
+    table, thead, tbody, th, td, tr { 
+        display: block; 
+    }
+    thead tr { 
+        position: absolute;
+        display: none;
+    }
+    tr { 
+        border-bottom: 1px solid #ccc; 
+    }
+    td { 
+        border: none;
+        border-bottom: 1px solid #eee; 
+        position: relative;
+        padding-left: 50%; 
+   }
+   td:before { 
+           position: relative;
+           top: 3px;
+           left: 6px;
+           width: 45%; 
+           padding-right: 10px; 
+           white-space: nowrap;
+           font-weight: bold;
+   }
+   td:nth-of-type(1):before { content: "ID : "; }
+   td:nth-of-type(2):before { content: "Blend Name : "; }
+   td:nth-of-type(3):before { content: "Origin : "; }
+   td:nth-of-type(4):before { content: "Variety : "; }
+   td:nth-of-type(5):before { content: "Notes : "; }
+   td:nth-of-type(6):before { content: "Intensifier : "; }
+}

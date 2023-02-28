@@ -29,9 +29,6 @@ export class ProductComponent {
     }
   }
 
-  onBack(){
-    this.$router.navigate(['']);
-  }
   ngOnDestroy(){
     this.$store.complete();
   }
