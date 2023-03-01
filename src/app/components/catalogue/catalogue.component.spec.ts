@@ -33,4 +33,15 @@ describe('CatalogueComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should check content of first th with #', () => {
+    let felement = fixture.debugElement.nativeElement;
+    expect(felement.querySelector('th').textContent).toContain('#');
+    fixture.detectChanges();
+  });
+  it('should check content of tag with id#blend', () => {
+    const ele = fixture.debugElement.nativeElement;
+    expect(ele.querySelector('#blend').textContent).toContain('Blend Name');
+    fixture.detectChanges();
+  });
 });
